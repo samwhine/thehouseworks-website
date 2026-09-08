@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { pageMeta, breadcrumbJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { CopyEmailButton } from "@/components/contact/CopyEmailButton";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMeta({
@@ -34,16 +36,29 @@ export default function ContactPage() {
 
         <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_1.2fr]">
           <Reveal delay={0.05} className="flex flex-col gap-8">
+            <div className="relative aspect-square w-full max-w-[360px] overflow-hidden border border-line">
+              <Image
+                src="/brand/thw-banner.jpg"
+                alt="The House Works — Creative &amp; Social Production"
+                fill
+                sizes="(min-width: 1024px) 360px, 100vw"
+                className="object-cover"
+              />
+            </div>
+
             <div>
               <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-stone">
                 Email
               </p>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="mt-2 block text-2xl font-medium tracking-tight transition-colors hover:text-brass-bright"
-              >
-                {siteConfig.email}
-              </a>
+              <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2">
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="text-2xl font-medium tracking-tight transition-colors hover:text-brass-bright"
+                >
+                  {siteConfig.email}
+                </a>
+                <CopyEmailButton email={siteConfig.email} />
+              </div>
             </div>
 
             <div>

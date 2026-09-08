@@ -1,22 +1,34 @@
+import Image from "next/image";
 import clsx from "clsx";
 
-/**
- * Temporary wordmark (spec section 47). Replace with the official THW
- * logo assets under /public/brand once supplied — see spec section 48.
- */
-export function Logo({ className }: { className?: string }) {
+export function Logo({
+  className,
+  iconClassName,
+}: {
+  className?: string;
+  iconClassName?: string;
+}) {
   return (
     <span
       className={clsx(
-        "flex items-center gap-2 text-[15px] font-medium tracking-tight",
+        "flex items-center gap-2.5 text-[15px] font-medium tracking-tight",
         className,
       )}
     >
       <span
-        aria-hidden="true"
-        className="flex size-6 items-center justify-center rounded-[3px] border border-current text-[10px] font-semibold"
+        className={clsx(
+          "relative block size-6 overflow-hidden rounded-[3px]",
+          iconClassName,
+        )}
       >
-        H
+        <Image
+          src="/brand/thw-logo-mark.png"
+          alt=""
+          fill
+          sizes="24px"
+          className="object-cover"
+          priority
+        />
       </span>
       The House Works
     </span>

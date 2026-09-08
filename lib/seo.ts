@@ -56,7 +56,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/brand/thw-logo-mark.svg`,
+    logo: `${siteConfig.url}/brand/thw-logo-mark.png`,
     email: siteConfig.email,
     sameAs: [siteConfig.instagram.url],
   };

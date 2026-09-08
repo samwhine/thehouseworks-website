@@ -17,10 +17,6 @@ export const metadata: Metadata = {
     "The House Works is a creative production partner helping brands turn briefs into content through creative direction, design, video editing and social production.",
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.name }],
-  icons: {
-    icon: "/icon.svg",
-    apple: "/apple-icon",
-  },
   manifest: "/manifest.webmanifest",
 };
 

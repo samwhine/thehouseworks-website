@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-Variable.woff2") format("woff2-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+  THE HOUSE WORKS — design tokens
+  Warm bitumen-black + paper white, with a single restrained brass accent
+  for premium/creative moments and a muted tally-red used only for a
+  handful of production-specific signals (record dot, active states).
+*/
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #14120f;
+  --color-ink-soft: #1c1a16;
+  --color-paper: #f5f1e8;
+  --color-paper-dim: #cdc7ba;
+  --color-brass: #c79a4b;
+  --color-brass-bright: #e0b56a;
+  --color-tally: #c1432b;
+  --color-stone: #8a8377;
+  --color-line: #f5f1e81f;
+
+  --ease-house: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  background: var(--color-ink);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass-bright);
+  outline-offset: 3px;
+}
+
+/* Custom cursor is opt-in via JS (fine-pointer, no reduced motion). */
+.cursor-enabled,
+.cursor-enabled a,
+.cursor-enabled button {
+  cursor: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #121011;
+  --color-ink-2: #1a1817;
+  --color-paper: #f0eee9;
+  --color-stone: #9c978d;
+  --color-brass: #c99a3c;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: color-mix(in oklab, var(--color-paper) 12%, transparent);
+}
+
+html {
+  background: var(--color-ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Fluid editorial type scale */
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-size: clamp(2.75rem, 5vw + 1.5rem, 6.5rem);
+}
+
+.text-h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  font-size: clamp(2.25rem, 3vw + 1.25rem, 4rem);
+}
+
+.text-h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.5rem);
+}
+
+.text-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Custom cursor: only enabled via JS on fine-pointer / non-reduced-motion devices */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

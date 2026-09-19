@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # The House Works — Next.js Website
 
 Next.js App Router source for The House Works, positioned as a corporate-ready external production partner. The page covers planning, client/production management, editing, motion, workflow, package placeholders, and renovation-safe portfolio placeholders.
@@ -6,6 +7,28 @@ Next.js App Router source for The House Works, positioned as a corporate-ready e
 ## Stack
 =======
 # The House Works
+=======
+# The House Works
+
+The website for **The House Works (THW)** — a creative production partner
+for brands, from brief to final frame. Built with Next.js (App Router),
+TypeScript, and Tailwind CSS.
+
+This is a **Phase 1 build**: the full site, architecture, and content
+structure are complete and production-capable, but several brand and
+project assets are still temporary placeholders (see "Current placeholder
+assets" below). Nothing here needs to be rebuilt to bring in the real
+assets — see "Adding real assets" below.
+
+## Stack
+
+- **Framework:** Next.js 16 (App Router, Server Components by default)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Motion:** [Motion](https://motion.dev/docs/react) (`motion/react`)
+- **Font:** Space Grotesk (self-hosted variable font, `public/fonts`)
+- **Deployment target:** Vercel
+>>>>>>> parent of 44f0ac6 (update1.2)
 
 The website for **The House Works (THW)** — a creative production partner
 for brands, from brief to final frame. Built with Next.js (App Router),
@@ -41,7 +64,11 @@ npm run dev
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Open `http://localhost:3000`.
+=======
+Visit `http://localhost:3000`.
+>>>>>>> parent of 44f0ac6 (update1.2)
 =======
 Visit `http://localhost:3000`.
 >>>>>>> parent of 44f0ac6 (update1.2)
@@ -53,6 +80,7 @@ npm run build
 npm run start
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Vercel settings
 
@@ -88,6 +116,8 @@ git push -u origin main
 
 The portfolio entries intentionally remain placeholders until project ownership, cover, description, and public links are approved.
 =======
+=======
+>>>>>>> parent of 44f0ac6 (update1.2)
 ## Project structure
 
 ```text
@@ -178,4 +208,7 @@ Local → GitHub → Vercel Preview → QA → Production
 3. Import the repo in Vercel.
 4. Set `NEXT_PUBLIC_SITE_URL` as an environment variable in Vercel.
 5. Deploy, then attach the custom domain.
+<<<<<<< HEAD
+>>>>>>> parent of 44f0ac6 (update1.2)
+=======
 >>>>>>> parent of 44f0ac6 (update1.2)

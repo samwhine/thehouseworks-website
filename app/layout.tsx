@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const siteUrl = "https://thehouseworks.vercel.app";
 
@@ -55,6 +56,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return <html lang="en"><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body></html>;
 =======
+=======
+>>>>>>> parent of 44f0ac6 (update1.2)
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/footer/Footer";
 import { CustomCursor } from "@/components/motion/CustomCursor";
@@ -88,5 +91,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </body>
     </html>
   );
+<<<<<<< HEAD
+>>>>>>> parent of 44f0ac6 (update1.2)
+=======
 >>>>>>> parent of 44f0ac6 (update1.2)
 }

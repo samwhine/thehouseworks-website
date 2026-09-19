@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -117,6 +118,8 @@ export const structuredData = {
   areaServed: "Jakarta, Indonesia",
 };
 =======
+=======
+>>>>>>> parent of 44f0ac6 (update1.2)
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Hero } from "@/components/hero/Hero";
@@ -149,4 +152,7 @@ export default function HomePage() {
     </>
   );
 }
+<<<<<<< HEAD
+>>>>>>> parent of 44f0ac6 (update1.2)
+=======
 >>>>>>> parent of 44f0ac6 (update1.2)

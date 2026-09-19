@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [{ url: "https://thehouseworks.vercel.app", lastModified: new Date(), changeFrequency: "monthly", priority: 1 }];
 =======
+=======
+>>>>>>> parent of 44f0ac6 (update1.2)
 import { projects } from "@/data/projects";
 import { siteConfig } from "@/lib/site-config";
 
@@ -23,5 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [...staticRoutes, ...projectRoutes];
+<<<<<<< HEAD
+>>>>>>> parent of 44f0ac6 (update1.2)
+=======
 >>>>>>> parent of 44f0ac6 (update1.2)
 }

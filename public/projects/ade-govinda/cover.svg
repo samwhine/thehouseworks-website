@@ -1,9 +1,0 @@
-<!-- PLACEHOLDER cover art — replace with real project media in Phase 2. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-  <rect width="800" height="600" fill="#121011"/>
-  <circle cx="400" cy="300" r="80" fill="none" stroke="#C99A3C" stroke-width="1.5" opacity="0.9"/>
-  <circle cx="400" cy="300" r="150" fill="none" stroke="#C99A3C" stroke-width="1.5" opacity="0.6"/>
-  <circle cx="400" cy="300" r="220" fill="none" stroke="#C99A3C" stroke-width="1.5" opacity="0.35"/>
-  <circle cx="400" cy="300" r="290" fill="none" stroke="#F0EEE9" stroke-width="1" opacity="0.15"/>
-  <circle cx="400" cy="300" r="36" fill="#C99A3C"/>
-</svg>

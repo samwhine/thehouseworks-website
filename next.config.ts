@@ -1,16 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-<<<<<<< HEAD
-  reactStrictMode: true,
-=======
   images: {
-    // Temporary placeholder covers are SVG; safe here since all image
-    // sources are local, first-party assets under /public.
+    // Phase 1 placeholder covers are SVG. Safe here because every SVG is
+    // our own bundled asset (never user-uploaded/remote), and the strict
+    // CSP below neutralises script execution in the served image response.
     dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
+    contentDispositionType: "inline",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
->>>>>>> parent of 44f0ac6 (update1.2)
 };
 
 export default nextConfig;

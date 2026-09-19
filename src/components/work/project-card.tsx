@@ -13,17 +13,24 @@ export function ProjectCard({
   priority?: boolean;
 }) {
   const indexLabel = String(index + 1).padStart(2, "0");
+  const href = project.externalUrl ?? `/work/${project.slug}`;
+  const external = Boolean(project.externalUrl);
 
   return (
     <Reveal>
       <Link
-        href={`/work/${project.slug}`}
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
         data-cursor-hover
         className="group block border-b border-paper/10 py-8 first:pt-0 last:border-b-0 sm:py-10"
+        aria-label={`${project.title} — open on Behance`}
       >
         <ProjectMedia
           thumbnail={project.thumbnail}
           previewVideo={project.previewVideo}
+          title={project.title}
+          category={project.category}
           alt={`${project.title} — ${project.category} by ${project.creator}`}
           priority={priority}
         />
@@ -43,7 +50,7 @@ export function ProjectCard({
           </div>
         </div>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-paper/80 sm:hidden">
-          View Project <span aria-hidden>→</span>
+          Open on Behance <span aria-hidden>↗</span>
         </span>
       </Link>
     </Reveal>

@@ -17,65 +17,69 @@ export type Project = {
   featured?: boolean;
 };
 
-// NOTE — Phase 1 placeholder data.
-// Thumbnails are temporary abstract cover art (see /public/projects), not
-// final photography or video stills. Real covers, gallery media and (where
-// they exist) individual Behance case-study links get swapped in during
-// Phase 2 — see the asset checklist. Nothing below invents a client name,
-// metric, testimonial or result that wasn't provided.
-
+// Covers are kept locally so the site stays fast and reliable on Vercel.
+// Behance does not provide a stable public cover-sync API, so replace the SVG
+// files in /public/projects with exported Behance covers when final artwork is ready.
 export const projects: Project[] = [
   {
     slug: "ade-govinda",
-    title: "Ade Govinda",
-    category: "Artist Promotional Content",
+    title: "Ade Govinda (Professional Editing)",
+    category: "Editing · Motion Graphics",
     creator: "Samuel",
-    services: ["Video Editing", "Social"],
+    services: ["Professional Editing", "Cinematic Editing", "Social Content"],
     description:
-      "Promotional video editing and social cutdowns for musician Ade Govinda.",
+      "Professional editing project for Ade Govinda. Behance creative fields: Editing and Motion Graphics.",
     thumbnail: "/projects/ade-govinda/cover.svg",
+    externalUrl: "https://www.behance.net/gallery/254775341/Ade-Govinda-(Professional-Editing)",
     featured: true,
   },
   {
     slug: "nelly-syara",
-    title: "Nelly Syara",
-    category: "Artist Promotional Content",
+    title: "Nelly Syara (MEME, Mentalilty, Funny Editings)",
+    category: "Advertising · Branding · Editing",
     creator: "Samuel",
-    services: ["Video Editing", "Social", "Typography"],
+    services: ["Meme Editing", "Funny Edits", "Social Content"],
     description:
-      "Promotional and social-first video editing for musician Nelly Syara.",
+      "Nelly Syara project focused on meme, mentality and funny editings. Behance creative fields: Advertising, Branding and Editing.",
     thumbnail: "/projects/nelly-syara/cover.svg",
-    featured: false,
+    externalUrl: "https://www.behance.net/gallery/254791715/Nelly-Syara-(MEME-Mentalilty-Funny-Editings)",
+    featured: true,
   },
   {
     slug: "sidegigx",
-    title: "Sidegigx",
-    category: "Promotional Video",
+    title: "Sidegigx (2D Animation)",
+    category: "Animation · Branding · Editing",
     creator: "Samuel",
-    services: ["Video Editing", "Typography", "Social"],
-    description: "Promotional video editing and short-form social content.",
+    services: ["2D Animation", "Branding", "Editing"],
+    description:
+      "2D animation project for Sidegigx. Behance creative fields: Animation, Branding and Editing.",
     thumbnail: "/projects/sidegigx/cover.svg",
+    externalUrl: "https://www.behance.net/gallery/254792361/Sidegigx-(2D-Animation)",
     featured: true,
   },
   {
     slug: "proctologyku",
-    title: "Proctologyku",
-    category: "Content Series",
+    title: "Proctologyku (2D Animation)",
+    category: "Animation · Branding · Editing",
     creator: "Samuel",
-    services: ["Short-Form Editing", "Social Media Editing"],
-    description: "Ongoing short-form editing and social content execution.",
+    services: ["2D Animation", "Branding", "Editing"],
+    description:
+      "2D animation project for Proctologyku. Behance creative fields: Animation, Branding and Editing.",
     thumbnail: "/projects/proctologyku/cover.svg",
+    externalUrl: "https://www.behance.net/gallery/254792183/Proctologyku-(2D-Animation)",
     featured: true,
   },
   {
     slug: "tebar-pesona",
-    title: "Tebar Pesona",
-    category: "Content Production",
+    title: "Tebar Pesona (Promotional Content)",
+    category: "Advertising · Branding · Editing",
     creator: "Samuel",
-    services: ["Video Editing", "Basic 2D Motion", "Content Production"],
-    description: "Video editing and lightweight motion graphics support.",
+    services: ["Promotional Content", "Content Marketing", "Music Content"],
+    description:
+      "Promotional content project for Tebar Pesona. Behance creative fields: Advertising, Branding and Editing.",
     thumbnail: "/projects/tebar-pesona/cover.svg",
-    featured: false,
+    externalUrl: "https://www.behance.net/gallery/254792067/Tebar-Pesona-(Promotional-Content)",
+    featured: true,
   },
 ];
 

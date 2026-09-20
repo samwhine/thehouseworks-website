@@ -52,7 +52,7 @@ export default function ContactPage() {
             <a
               href={`mailto:${site.email}`}
               data-cursor-hover
-              className="group inline-flex flex-wrap items-center gap-3 text-3xl font-medium text-paper transition-colors hover:text-brass sm:text-5xl"
+              className="group inline-flex max-w-full min-w-0 flex-wrap items-center gap-2 break-all text-2xl font-medium leading-tight text-paper transition-colors hover:text-brass sm:gap-3 sm:text-5xl"
             >
               {site.email}
               <ArrowUpRight className="size-8 shrink-0 transition-transform duration-300 ease-premium group-hover:translate-x-1 group-hover:-translate-y-1 sm:size-10" />

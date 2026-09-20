@@ -29,7 +29,7 @@ export function Hero() {
       )}
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[#002b43]/35" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center px-6 pt-32 text-center sm:px-8 lg:px-12">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center px-5 pb-8 pt-20 text-center sm:px-8 sm:pb-0 sm:pt-32 lg:px-12">
         <div className="mb-8 flex items-center gap-3 text-eyebrow text-[0.65rem] text-paper/65">
           <span className="inline-block size-2 rounded-full bg-brass" />
           Independent creative production team · Indonesia

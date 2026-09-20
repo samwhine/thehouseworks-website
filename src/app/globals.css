@@ -13,8 +13,8 @@
 
 :root { --background: 201 100% 13%; --foreground: 0 0% 100%; --font-body: 'Inter', sans-serif; --font-display-serif: 'Instrument Serif', serif; color-scheme: dark; }
 * { border-color: rgba(255, 255, 255, 0.12); }
-html { background: hsl(var(--background)); scroll-behavior: smooth; }
-body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--font-body); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html { background: hsl(var(--background)); scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--font-body); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; }
 ::selection { background: rgba(215, 173, 98, 0.75); color: #002b43; }
 :focus-visible { outline: 2px solid var(--color-brass); outline-offset: 3px; border-radius: 999px; }
 

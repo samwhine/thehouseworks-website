@@ -1,98 +1,64 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
-import { primaryNav, navCta } from "@/data/site";
-import { Logo } from "@/components/layout/logo";
 import { MobileMenu } from "@/components/layout/mobile-menu";
-import { Magnetic } from "@/components/ui/magnetic";
-import { cn } from "@/lib/utils";
+
+const links = [
+  { label: "Home", href: "/" },
+  { label: "Studio", href: "/about" },
+  { label: "About", href: "/about" },
+  { label: "Journal", href: "/work" },
+  { label: "Reach Us", href: "/contact" },
+];
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    let ticking = false;
-    function handleScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 8);
-        ticking = false;
-      });
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  function closeMenu() {
-    setMenuOpen(false);
-    menuButtonRef.current?.focus();
-  }
 
   return (
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-[#06131c]"
       >
         Skip to content
       </a>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-40 transition-[background-color,border-color] duration-500 ease-premium",
-          scrolled
-            ? "border-b border-paper/10 bg-ink/85 backdrop-blur-md"
-            : "border-b border-transparent bg-transparent",
-        )}
-      >
-        <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
-          <Link href="/" className="shrink-0" aria-label="The House Works — home">
-            <Logo />
+      <header className="absolute inset-x-0 top-0 z-40">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-6">
+          <Link href="/" className="font-display text-3xl tracking-tight text-white" aria-label="Velorah home">
+            Velorah<sup className="text-xs">®</sup>
           </Link>
 
-          <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
-            {primaryNav.map((link) => (
+          <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+            {links.map((link, index) => (
               <Link
-                key={link.href}
+                key={`${link.label}-${index}`}
                 href={link.href}
-                className="text-sm font-medium text-paper/80 transition-colors duration-300 hover:text-paper"
+                className={`text-sm transition-colors duration-300 ${index === 0 ? "text-white" : "text-white/55 hover:text-white"}`}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden lg:block">
-            <Magnetic>
-              <Link
-                href={navCta.href}
-                className="inline-flex items-center rounded-full border border-paper/25 px-5 py-2.5 text-sm font-medium text-paper transition-colors duration-300 hover:border-brass hover:text-brass"
-              >
-                {navCta.label}
-              </Link>
-            </Magnetic>
-          </div>
+          <Link href="/contact" className="liquid-glass hidden rounded-full px-6 py-2.5 text-sm text-white transition-transform duration-300 hover:scale-[1.03] md:inline-flex">
+            <span className="relative z-10">Begin Journey</span>
+          </Link>
 
           <button
-            ref={menuButtonRef}
             type="button"
             onClick={() => setMenuOpen(true)}
-            className="flex items-center gap-2 text-sm font-medium text-paper lg:hidden"
+            className="liquid-glass inline-flex rounded-full px-4 py-2 text-sm text-white md:hidden"
             aria-haspopup="dialog"
             aria-expanded={menuOpen}
           >
-            Menu
-            <Menu className="size-5" aria-hidden />
+            <span className="relative z-10 flex items-center gap-2">Menu <Menu className="size-4" aria-hidden /></span>
           </button>
         </div>
       </header>
 
-      <MobileMenu open={menuOpen} onClose={closeMenu} closeButtonRef={menuButtonRef} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} closeButtonRef={{ current: null }} />
     </>
   );
 }

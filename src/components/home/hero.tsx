@@ -1,81 +1,53 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDownRight } from "lucide-react";
-import { ButtonLink } from "@/components/ui/button-link";
+import { useEffect, useState } from "react";
 
-const HEADLINE_LINES = ["We make", "brands", "worth", "watching."];
-const EASE = [0.22, 1, 0.36, 1] as const;
+const VIDEO_SRC =
+  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4";
 
 export function Hero() {
-  const prefersReducedMotion = useReducedMotion();
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setVideoReady(true), 120);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pb-16 pt-32 sm:pb-20 lg:pb-24">
-      <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,color-mix(in_oklab,var(--color-paper)_7%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_oklab,var(--color-paper)_7%,transparent)_1px,transparent_1px)] [background-size:clamp(72px,11vw,160px)_clamp(72px,11vw,160px)] [mask-image:linear-gradient(to_bottom,transparent,black_14%,black_75%,transparent)]" />
-      <div className="pointer-events-none absolute -right-48 -top-48 size-[42rem] rounded-full bg-brass/10 blur-3xl" />
+    <section className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden bg-[#002b43] text-white">
+      <video
+        className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        onCanPlay={() => setVideoReady(true)}
+      >
+        <source src={VIDEO_SRC} type="video/mp4" />
+      </video>
 
-      <div className="relative mx-auto grid w-full max-w-[1400px] gap-14 px-6 sm:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-end lg:gap-20 lg:px-12">
-        <div>
-          <div className="mb-8 flex items-center gap-3 text-eyebrow text-[0.65rem] text-stone">
-            <span className="inline-block size-2 rounded-full bg-brass" />
-            Independent creative production team · Indonesia
-          </div>
-          <h1 className="text-display max-w-5xl uppercase">
-            {HEADLINE_LINES.map((line, i) => (
-              <span key={line} className="block overflow-hidden">
-                <motion.span
-                  className="block"
-                  initial={prefersReducedMotion ? undefined : { y: "110%" }}
-                  animate={{ y: "0%" }}
-                  transition={{ duration: 0.9, delay: 0.15 + i * 0.09, ease: EASE }}
-                >
-                  {line}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
-          <motion.p
-            className="mt-8 max-w-md text-lg text-stone"
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.62, ease: EASE }}
-          >
-            Creative production partner for brands, from brief to final frame.
-          </motion.p>
-          <motion.div
-            className="mt-10 flex flex-wrap items-center gap-4"
-            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.74, ease: EASE }}
-          >
-            <ButtonLink href="/work" variant="solid">View Our Work</ButtonLink>
-            <ButtonLink href="/contact" variant="outline">Start a Project</ButtonLink>
-          </motion.div>
-        </div>
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-6 pb-[90px] pt-[90px] text-center sm:px-8">
+        <h1 className="animate-fade-rise max-w-7xl font-display text-5xl font-normal leading-[0.95] tracking-[-0.04em] sm:text-7xl md:text-8xl">
+          Where <em className="not-italic text-white/60">dreams</em> rise through the <em className="not-italic text-white/60">silence.</em>
+        </h1>
 
-        <motion.div
-          className="relative min-h-[20rem] overflow-hidden rounded-[2rem] border border-paper/15 bg-ink-2 p-6 sm:min-h-[27rem] sm:p-8"
-          initial={prefersReducedMotion ? undefined : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.35, ease: EASE }}
+        <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
+          We&apos;re designing tools for deep thinkers, bold creators, and quiet rebels. Amid the chaos, we build digital spaces for sharp focus and inspired work.
+        </p>
+
+        <a
+          href="#journey"
+          className="liquid-glass animate-fade-rise-delay-2 mt-12 inline-flex rounded-full px-14 py-5 text-base text-white transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_25%,color-mix(in_oklab,var(--color-brass)_35%,transparent),transparent_32%),linear-gradient(135deg,#27211a,#121011_58%)]" />
-          <div className="absolute -right-12 top-10 size-56 rounded-full border border-brass/40 sm:size-72" />
-          <div className="absolute -right-2 top-20 size-40 rounded-full border border-paper/20 sm:size-52" />
-          <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-4 sm:bottom-8 sm:left-8 sm:right-8">
-            <div>
-              <p className="text-eyebrow text-[0.65rem] text-brass">The House Works</p>
-              <p className="mt-3 max-w-[14ch] font-display text-3xl uppercase leading-[0.9] text-paper sm:text-4xl">From brief to final frame.</p>
-            </div>
-            <Image src="/brand/the-house-works-logo.png" alt="The House Works mark" width={120} height={112} className="w-20 object-contain sm:w-28" />
-          </div>
-          <div className="absolute right-6 top-6 flex items-center gap-2 text-xs text-paper/55 sm:right-8 sm:top-8">
-            Scroll to explore <ArrowDownRight className="size-4 text-brass" aria-hidden />
-          </div>
-        </motion.div>
+          <span className="relative z-10">Begin Journey</span>
+        </a>
       </div>
+
+      <span id="journey" className="absolute bottom-0" aria-hidden="true" />
     </section>
   );
 }
+
+export { VIDEO_SRC };

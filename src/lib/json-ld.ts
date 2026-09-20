@@ -13,6 +13,19 @@ export function organizationJsonLd() {
     description: site.description,
     email: site.email,
     areaServed: { "@type": "Country", name: "Indonesia" },
+    founder: [
+      {
+        "@type": "Person",
+        name: "Samuel Extehines Heydemans",
+        url: "https://samuel-extehines-heydemans-portofolio.vercel.app",
+        jobTitle: "Co-founder & Creative Partner",
+      },
+      {
+        "@type": "Person",
+        name: "Stefanny Simanjuntak",
+        jobTitle: "Co-founder & Creative Partner",
+      },
+    ],
     knowsAbout: ["Creative Direction", "Video Editing", "Motion Graphics", "Brand Content", "Social Media Production"],
     employee: team.map((member) => ({ "@type": "Person", name: member.name, jobTitle: member.role })),
     sameAs: [site.instagramUrl, site.behanceUrl],

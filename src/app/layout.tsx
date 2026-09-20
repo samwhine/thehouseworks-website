@@ -9,13 +9,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Velorah", template: "%s" },
-  description: "Digital spaces for sharp focus and inspired work.",
-  keywords: ["Velorah", "digital studio", "creative tools", "inspired work"],
+  title: { default: "The House Works — Creative Production Partner", template: "%s" },
+  description: site.description,
+  keywords: ["The House Works", "creative production Indonesia", "creative agency Indonesia", "video editing", "brand content production"],
   authors: [{ name: site.name }],
   icons: { icon: "/favicon.ico" },
   manifest: "/manifest.webmanifest",
-  openGraph: { type: "website", siteName: "Velorah", locale: "en_US", url: SITE_URL },
+  openGraph: { type: "website", siteName: site.name, locale: site.locale, url: SITE_URL },
   twitter: { card: "summary_large_image" },
 };
 

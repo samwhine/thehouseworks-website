@@ -1,9 +1,1 @@
-<!-- PLACEHOLDER cover art — replace with real project media in Phase 2. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-  <rect width="800" height="600" fill="#121011"/>
-  <g>
-    <polygon points="0,0 260,0 40,600 0,600" fill="#1A1817"/>
-    <polygon points="260,0 340,0 160,600 40,600" fill="#C99A3C" opacity="0.55"/>
-    <polygon points="340,0 400,0 220,600 160,600" fill="#F0EEE9" opacity="0.1"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><rect width="800" height="600" fill="#27153e"/><circle cx="400" cy="290" r="190" fill="#e46c9a" opacity=".72"/><circle cx="400" cy="290" r="122" fill="#f7bd62"/><circle cx="400" cy="290" r="58" fill="#27153e"/><path d="M55 155h690M55 425h690" stroke="#fff" stroke-width="2" opacity=".55"/><text x="52" y="92" fill="#fff" font-family="Arial,sans-serif" font-size="15" letter-spacing="4">THE HOUSE WORKS / 05</text><text x="52" y="522" fill="#fff" font-family="Georgia,serif" font-size="46">Turn It Up</text></svg>

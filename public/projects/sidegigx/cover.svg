@@ -1,15 +1,1 @@
-<!-- PLACEHOLDER cover art — replace with real project media in Phase 2. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-  <rect width="800" height="600" fill="#121011"/>
-  <g>
-    <rect x="221" y="121" width="110" height="110" fill="#C99A3C" opacity="0.9"/>
-    <rect x="345" y="121" width="110" height="110" fill="#C99A3C" opacity="0.6"/>
-    <rect x="469" y="121" width="110" height="110" fill="#C99A3C" opacity="0.3"/>
-    <rect x="221" y="245" width="110" height="110" fill="#C99A3C" opacity="0.6"/>
-    <rect x="345" y="245" width="110" height="110" fill="#F0EEE9" opacity="0.14"/>
-    <rect x="469" y="245" width="110" height="110" fill="#C99A3C" opacity="0.2"/>
-    <rect x="221" y="369" width="110" height="110" fill="#C99A3C" opacity="0.3"/>
-    <rect x="345" y="369" width="110" height="110" fill="#C99A3C" opacity="0.2"/>
-    <rect x="469" y="369" width="110" height="110" fill="#F0EEE9" opacity="0.08"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><rect width="800" height="600" fill="#10161f"/><path d="M-80 500 540-80M120 680 740 100M330 750 910 170" stroke="#72e0c1" stroke-width="92" opacity=".82"/><path d="M-80 420 540-160M120 600 740 20M330 670 910 90" stroke="#f5e4b5" stroke-width="6" opacity=".8"/><circle cx="620" cy="130" r="55" fill="#f5e4b5"/><text x="52" y="92" fill="#f5e4b5" font-family="Arial,sans-serif" font-size="15" letter-spacing="4">THE HOUSE WORKS / 03</text><text x="52" y="522" fill="#fff" font-family="Georgia,serif" font-size="46">Make Your Own Lane</text></svg>

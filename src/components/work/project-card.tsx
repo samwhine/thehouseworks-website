@@ -3,15 +3,7 @@ import type { Project } from "@/data/projects";
 import { ProjectMedia } from "@/components/work/project-media";
 import { Reveal } from "@/components/ui/reveal";
 
-export function ProjectCard({
-  project,
-  index,
-  priority,
-}: {
-  project: Project;
-  index: number;
-  priority?: boolean;
-}) {
+export function ProjectCard({ project, index, priority }: { project: Project; index: number; priority?: boolean }) {
   const indexLabel = String(index + 1).padStart(2, "0");
   const href = project.externalUrl ?? `/work/${project.slug}`;
   const external = Boolean(project.externalUrl);
@@ -24,7 +16,7 @@ export function ProjectCard({
         rel={external ? "noopener noreferrer" : undefined}
         data-cursor-hover
         className="group block border-b border-paper/10 py-8 first:pt-0 last:border-b-0 sm:py-10"
-        aria-label={`${project.title} — open on Behance`}
+        aria-label={`${project.title} — view project${external ? " on Behance" : ""}`}
       >
         <ProjectMedia
           thumbnail={project.thumbnail}
@@ -38,9 +30,7 @@ export function ProjectCard({
           <div className="flex items-baseline gap-4">
             <span className="font-display text-sm text-stone">{indexLabel}</span>
             <div>
-              <h3 className="text-h2 text-[1.5rem] transition-colors duration-300 group-hover:text-brass sm:text-[1.85rem]">
-                {project.title}
-              </h3>
+              <h3 className="text-h2 text-[1.5rem] transition-colors duration-300 group-hover:text-brass sm:text-[1.85rem]">{project.title}</h3>
               <p className="mt-1 text-sm text-stone">{project.category}</p>
             </div>
           </div>
@@ -49,9 +39,6 @@ export function ProjectCard({
             <p className="mt-1 text-sm text-stone">By {project.creator}</p>
           </div>
         </div>
-        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-paper/80 sm:hidden">
-          Open on Behance <span aria-hidden>↗</span>
-        </span>
       </Link>
     </Reveal>
   );

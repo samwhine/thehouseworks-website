@@ -9,14 +9,20 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "The House Works — Creative Production Partner", template: "%s" },
+  applicationName: site.name,
+  title: { default: "The House Works — Creative Production Partner in Indonesia", template: "%s" },
   description: site.description,
-  keywords: ["The House Works", "creative production Indonesia", "creative agency Indonesia", "video editing", "brand content production"],
-  authors: [{ name: site.name }],
-  icons: { icon: "/favicon.ico" },
+  keywords: ["The House Works", "creative production Indonesia", "creative agency Indonesia", "video editing Indonesia", "motion graphics", "brand content production", "social media content production"],
+  authors: [{ name: "Samuel Extehines Heydemans" }, { name: "Stefanny Simanjuntak" }],
+  creator: site.name,
+  publisher: site.name,
+  category: "creative production",
+  alternates: { canonical: SITE_URL },
+  icons: { icon: "/favicon.ico", apple: "/icons/apple-touch-icon.png" },
   manifest: "/manifest.webmanifest",
-  openGraph: { type: "website", siteName: site.name, locale: site.locale, url: SITE_URL },
-  twitter: { card: "summary_large_image" },
+  openGraph: { type: "website", siteName: site.name, locale: site.locale, url: SITE_URL, title: "The House Works — Creative Production Partner in Indonesia", description: site.description, images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "The House Works — Creative production partner for brands" }] },
+  twitter: { card: "summary_large_image", title: "The House Works — Creative Production Partner in Indonesia", description: site.description, images: [`${SITE_URL}/opengraph-image`] },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

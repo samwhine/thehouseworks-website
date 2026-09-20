@@ -4,28 +4,16 @@ import { site, SITE_URL } from "@/data/site";
 type BuildMetadataArgs = {
   title: string;
   description: string;
-  path: string; // e.g. "/", "/work", "/work/ade-govinda"
+  path: string;
   noIndex?: boolean;
   images?: string[];
   keywords?: string[];
 };
 
-/**
- * Builds a consistent Metadata object (title, description, canonical,
- * Open Graph, Twitter) for a single page. Every call site supplies its own
- * final title/description string per spec §53 — nothing here appends or
- * rewrites what the page already decided to say.
- */
-export function buildMetadata({
-  title,
-  description,
-  path,
-  noIndex,
-  images,
-  keywords,
-}: BuildMetadataArgs): Metadata {
+export function buildMetadata({ title, description, path, noIndex, images, keywords }: BuildMetadataArgs): Metadata {
   const url = path === "/" ? SITE_URL : `${SITE_URL}${path}`;
-  const ogImages = images ?? [`${path === "/" ? "" : path}/opengraph-image`];
+  const ogImages = images ?? [`${SITE_URL}${path === "/" ? "/opengraph-image" : `${path}/opengraph-image`}`];
+  const imageObjects = ogImages.map((image) => ({ url: image, width: 1200, height: 630, alt: `${title} — ${site.name}` }));
 
   return {
     title,
@@ -39,16 +27,11 @@ export function buildMetadata({
       siteName: site.name,
       locale: site.locale,
       type: "website",
-      images: ogImages,
+      images: imageObjects,
     },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ogImages,
-    },
+    twitter: { card: "summary_large_image", title, description, images: imageObjects },
     robots: noIndex
       ? { index: false, follow: false }
-      : { index: true, follow: true },
+      : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   };
 }

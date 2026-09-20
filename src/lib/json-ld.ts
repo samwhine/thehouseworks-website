@@ -1,5 +1,6 @@
 import { site, SITE_URL } from "@/data/site";
 import type { Project } from "@/data/projects";
+import { team } from "@/data/team";
 
 export function organizationJsonLd() {
   return {
@@ -7,11 +8,14 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: site.name,
     url: SITE_URL,
-    logo: `${SITE_URL}/icons/icon-512.png`,
+    logo: `${SITE_URL}/brand/the-house-works-logo.png`,
+    image: `${SITE_URL}/brand/the-house-works-logo.png`,
+    description: site.description,
     email: site.email,
-    // Only THW's own official channel belongs here — never a team member's
-    // personal portfolio link (spec §62).
-    sameAs: [site.instagramUrl],
+    areaServed: { "@type": "Country", name: "Indonesia" },
+    knowsAbout: ["Creative Direction", "Video Editing", "Motion Graphics", "Brand Content", "Social Media Production"],
+    employee: team.map((member) => ({ "@type": "Person", name: member.name, jobTitle: member.role })),
+    sameAs: [site.instagramUrl, site.behanceUrl],
   };
 }
 
@@ -21,6 +25,9 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     name: site.name,
     url: SITE_URL,
+    description: site.description,
+    publisher: { "@type": "Organization", name: site.name, url: SITE_URL },
+    inLanguage: "en-US",
   };
 }
 
@@ -28,12 +35,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: item.name,
-      item: item.path === "/" ? SITE_URL : `${SITE_URL}${item.path}`,
-    })),
+    itemListElement: items.map((item, i) => ({ "@type": "ListItem", position: i + 1, name: item.name, item: item.path === "/" ? SITE_URL : `${SITE_URL}${item.path}` })),
   };
 }
 
@@ -42,21 +44,15 @@ export function creativeWorkJsonLd(project: Project) {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
+    description: project.description,
     about: project.category,
     image: `${SITE_URL}${project.thumbnail}`,
-    creator: {
-      "@type": project.creator === "THW" ? "Organization" : "Person",
-      name: project.creator === "THW" ? site.name : project.creator,
-    },
+    creator: { "@type": project.creator === "THW" ? "Organization" : "Person", name: project.creator === "Samuel" ? "Samuel Extehines Heydemans" : project.creator === "Fanny" ? "Stefanny Simanjuntak" : site.name },
     url: `${SITE_URL}/work/${project.slug}`,
     ...(project.externalUrl ? { sameAs: [project.externalUrl] } : {}),
   };
 }
 
-/** Renders a JSON-LD <script> tag from a schema.org object. */
 export function jsonLdScriptProps(data: Record<string, unknown>) {
-  return {
-    type: "application/ld+json" as const,
-    dangerouslySetInnerHTML: { __html: JSON.stringify(data) },
-  };
+  return { type: "application/ld+json" as const, dangerouslySetInnerHTML: { __html: JSON.stringify(data) } };
 }

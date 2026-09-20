@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { primaryNav, navCta } from "@/data/site";
 import { Logo } from "@/components/layout/logo";
@@ -9,6 +10,7 @@ import { MobileMenu } from "@/components/layout/mobile-menu";
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -21,12 +23,20 @@ export function SiteHeader() {
             <Logo markClassName="h-8" />
           </Link>
 
-          <nav className="liquid-glass hidden items-center gap-8 rounded-full px-6 py-3 md:flex" aria-label="Primary">
-            {primaryNav.map((link, index) => (
-              <Link key={link.href} href={link.href} className={`text-sm transition-colors duration-300 ${index === 0 ? "text-paper" : "text-paper/60 hover:text-paper"}`}>
-                {link.label}
-              </Link>
-            ))}
+          <nav className="liquid-glass hidden items-center gap-1 rounded-full px-2 py-2 md:flex" aria-label="Primary">
+            {primaryNav.map((link) => {
+              const isActive = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(`${link.href}/`);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`rounded-full px-3.5 py-1.5 text-sm transition-colors duration-300 ${isActive ? "bg-white/12 text-paper" : "text-paper/60 hover:bg-white/8 hover:text-paper"}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <Link href={navCta.href} className="liquid-glass hidden rounded-full px-5 py-2.5 text-sm text-paper transition-transform duration-300 hover:scale-[1.03] md:inline-flex">

@@ -9,13 +9,25 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
-  const [videoReady, setVideoReady] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   return (
     <section className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink text-paper">
-      <video className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`} autoPlay loop muted playsInline preload="auto" aria-hidden="true" onCanPlay={() => setVideoReady(true)}>
-        <source src={VIDEO_SRC} type="video/mp4" />
-      </video>
+      {!videoFailed && (
+        <video
+          className="absolute inset-0 z-0 h-full w-full object-cover opacity-100"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          onError={() => setVideoFailed(true)}
+        >
+          <source src={VIDEO_SRC} type="video/mp4" />
+        </video>
+      )}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[#002b43]/35" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center px-6 pt-32 text-center sm:px-8 lg:px-12">
         <div className="mb-8 flex items-center gap-3 text-eyebrow text-[0.65rem] text-paper/65">

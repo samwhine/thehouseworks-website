@@ -112,7 +112,7 @@ export default async function ProjectPage({
               <p className="text-sm text-stone">
                 More production work like this lives on{" "}
                 <a
-                  href="https://www.behance.net/samuel-e-heydemans"
+                  href="https://www.behance.net/samuelheydemans"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-paper/80 underline decoration-paper/30 underline-offset-4 hover:text-brass"

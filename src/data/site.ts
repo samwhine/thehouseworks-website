@@ -10,7 +10,7 @@ export const site = {
   email: "thehouseworks.co@gmail.com",
   instagramHandle: "@thehouse.works",
   instagramUrl: "https://www.instagram.com/thehouse.works",
-  behanceUrl: "https://www.behance.net/samuel-e-heydemans",
+  behanceUrl: "https://www.behance.net/samuelheydemans",
   locale: "en_US",
 } as const;
 

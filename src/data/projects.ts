@@ -35,6 +35,19 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "hifami",
+    title: "HiFami / Talking-Head Video",
+    category: "Talking-Head Video Editing",
+    creator: "Samuel",
+    client: "HiFami",
+    services: ["Talking-Head Editing", "Advertising", "Branding"],
+    description:
+      "A personality-led talking-head edit for HiFami, shaped with direct pacing, expressive typography, and advertising-focused visual rhythm.",
+    thumbnail: "/projects/samuel-extehines-heydemans-hifami-talking-head-video-cover.png",
+    externalUrl: "https://www.behance.net/gallery/257882583/HiFami-(Talking-Head-Video)",
+    featured: true,
+  },
+  {
     slug: "ade-govinda",
     title: "Ade Govinda / Professional Editing",
     category: "Video Editing",

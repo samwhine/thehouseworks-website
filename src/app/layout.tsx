@@ -6,6 +6,8 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { CustomCursor } from "@/components/layout/custom-cursor";
 import "./globals.css";
+import "glisse/styles.css";
+import "./glisse-overrides.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fontInter.variable} ${fontSpaceGrotesk.variable}`}>
+    <html lang="en" data-theme="dark" className={`${fontInter.variable} ${fontSpaceGrotesk.variable}`}>
       <body className="min-h-dvh antialiased">
         <script {...jsonLdScriptProps(organizationJsonLd())} />
         <script {...jsonLdScriptProps(websiteJsonLd())} />

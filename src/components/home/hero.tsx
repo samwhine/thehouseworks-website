@@ -27,14 +27,15 @@ export function Hero() {
           <source src={VIDEO_SRC} type="video/mp4" />
         </video>
       )}
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[#002b43]/35" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_34%,rgba(0,43,67,0.18),rgba(0,43,67,0.72)_78%)]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-ink/15 via-transparent to-ink/70" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center px-5 pb-8 pt-20 text-center sm:px-8 sm:pb-0 sm:pt-32 lg:px-12">
         <div className="mb-8 flex items-center gap-3 text-eyebrow text-[0.65rem] text-paper/65">
           <span className="inline-block size-2 rounded-full bg-brass" />
           Independent creative production team · Indonesia
         </div>
-        <motion.h1 className="text-display max-w-6xl" initial={prefersReducedMotion ? undefined : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>
+        <motion.h1 className="text-display max-w-6xl drop-shadow-[0_12px_32px_rgba(0,0,0,0.18)]" initial={prefersReducedMotion ? undefined : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>
           We make <em className="not-italic text-paper/60">brands</em> worth watching.
         </motion.h1>
         <motion.p className="mt-8 max-w-2xl text-base leading-relaxed text-paper/65 sm:text-lg" initial={prefersReducedMotion ? undefined : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.18, ease: EASE }}>

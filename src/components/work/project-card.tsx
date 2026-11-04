@@ -15,7 +15,7 @@ export function ProjectCard({ project, index, priority }: { project: Project; in
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
         data-cursor-hover
-        className="group block border-b border-paper/10 py-8 first:pt-0 last:border-b-0 sm:py-10"
+        className="group block border-b border-paper/10 py-8 outline-none transition-[border-color,transform] duration-300 ease-premium first:pt-0 last:border-b-0 hover:border-paper/25 focus-visible:rounded-2xl focus-visible:border-brass/70 focus-visible:ring-2 focus-visible:ring-brass/70 focus-visible:ring-offset-4 focus-visible:ring-offset-ink sm:py-10"
         aria-label={`${project.title} — view project${external ? " on Behance" : ""}`}
       >
         <ProjectMedia
@@ -30,7 +30,7 @@ export function ProjectCard({ project, index, priority }: { project: Project; in
           <div className="flex items-baseline gap-4">
             <span className="font-display text-sm text-stone">{indexLabel}</span>
             <div>
-              <h3 className="text-h2 text-[1.5rem] transition-colors duration-300 group-hover:text-brass sm:text-[1.85rem]">{project.title}</h3>
+              <h3 className="text-h2 text-[1.5rem] transition-[color,transform] duration-300 ease-premium group-hover:translate-x-1 group-hover:text-brass sm:text-[1.85rem]">{project.title}</h3>
               <p className="mt-1 text-sm text-stone">{project.category}</p>
             </div>
           </div>

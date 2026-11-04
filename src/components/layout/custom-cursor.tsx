@@ -60,7 +60,7 @@ export function CustomCursor() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[100] mix-blend-difference"
+      className="thw-custom-cursor pointer-events-none fixed left-0 top-0 z-[100] mix-blend-difference"
       style={{ x: springX, y: springY, opacity: visible ? 1 : 0 }}
     >
       <motion.div
